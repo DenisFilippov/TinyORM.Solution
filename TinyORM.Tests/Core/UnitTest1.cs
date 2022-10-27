@@ -12,8 +12,8 @@ public class UnitTest1
   [Test]
   public void MakeTableTest()
   {
-    var personTable = new TableBuilder().Build(typeof(PersonEntity));
-    var saleTable = new TableBuilder().Build(typeof(SaleEntity));
+    var personTable = TypeConverter.Convert(typeof(PersonEntity));
+    var saleTable = TypeConverter.Convert(typeof(SaleEntity));
     Assert.That(personTable, Is.Not.Null);
     Assert.That(saleTable, Is.Not.Null);
   }

@@ -2,6 +2,7 @@
 
 namespace TinyORM.Tests.Core;
 
+[Entity]
 [Table("public", name: "sales")]
 public class SaleEntity
 {
