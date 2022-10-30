@@ -1,6 +1,6 @@
 ﻿namespace TinyORM.Core;
 
-internal class Entity
+public class Entity
 {
   internal Entity(string? schema, string name)
   {

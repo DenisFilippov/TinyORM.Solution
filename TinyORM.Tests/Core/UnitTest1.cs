@@ -10,11 +10,11 @@ public class UnitTest1
   }
 
   [Test]
-  public void MakeTableTest()
+  public void MakeEntityTest()
   {
-    var personTable = TypeConverter.Convert(typeof(PersonEntity));
-    var saleTable = TypeConverter.Convert(typeof(SaleEntity));
-    Assert.That(personTable, Is.Not.Null);
-    Assert.That(saleTable, Is.Not.Null);
+    var personEntity = TypeConverter.Convert(typeof(PersonEntity));
+    var saleEntity = TypeConverter.Convert(typeof(SaleEntity));
+    Assert.That(personEntity, Is.Not.Null);
+    Assert.That(saleEntity, Is.Not.Null);
   }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TinyORM.Core;
 
-internal record Index(string Name, bool IsUnique, SortEnum SortType = SortEnum.Acs)
+public record Index(string Name, bool IsUnique, SortEnum SortType = SortEnum.Acs)
 {
   public List<Field> Fields { get; init; } = new();
 }

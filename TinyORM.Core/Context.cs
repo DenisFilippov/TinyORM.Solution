@@ -2,13 +2,18 @@
 
 public class Context
 {
-  private readonly IDictionary<string, Entity> _tableCollection = new Dictionary<string, Entity>();
+  private readonly IDictionary<Type, Entity> _entityCollection;
+
+  internal Context()
+  {
+    _entityCollection = new Dictionary<Type, Entity>();
+  }
 
   public void AddEntity(Type entityType)
   {
     ArgumentNullException.ThrowIfNull(entityType, nameof(entityType));
 
     var table = TypeConverter.Convert(entityType);
-    if (!_tableCollection.ContainsKey(table.DisplayName)) _tableCollection.Add(table.DisplayName, table);
+    if (!_entityCollection.ContainsKey(entityType)) _entityCollection.Add(entityType, table);
   }
 }
