@@ -2,10 +2,10 @@
 
 public class EntityNotFoundException : Exception
 {
-  public Type Type { get; }
-
   public EntityNotFoundException(Type type)
   {
     Type = type;
   }
+
+  public Type Type { get; }
 }

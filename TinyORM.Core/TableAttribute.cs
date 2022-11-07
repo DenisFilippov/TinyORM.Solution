@@ -10,6 +10,6 @@ public class TableAttribute : TinyORMAttribute
   }
 
   public string Schema { get; }
-  
+
   public string Name { get; }
 }

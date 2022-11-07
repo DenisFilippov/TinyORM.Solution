@@ -8,7 +8,7 @@ internal static class TypeConverter
   {
     return attributes.FirstOrDefault(r => r is T) as T ?? null;
   }
-  
+
   public static Entity Convert(Type type)
   {
     ArgumentNullException.ThrowIfNull(type, nameof(type));
@@ -18,7 +18,7 @@ internal static class TypeConverter
     var entityAttribute = FirstOrNull<EntityAttribute>(typeAttributes);
     if (entityAttribute == null)
       throw new ArgumentException("Type not marked with \"Entity\" attribute", nameof(type));
-    
+
     var tableAttribute = typeAttributes.FirstOrDefault(r => r is TableAttribute) as TableAttribute ?? null;
     if (tableAttribute == null)
       throw new ArgumentException("Type not marked with \"Table\" attribute", nameof(type));
@@ -29,13 +29,14 @@ internal static class TypeConverter
     foreach (var property in properties)
     {
       var propertyAttributes = property.GetCustomAttributes<TinyORMAttribute>().ToArray();
-      
-      var fieldAttribute = FirstOrNull<FieldAttribute>(propertyAttributes); 
+
+      var fieldAttribute = FirstOrNull<FieldAttribute>(propertyAttributes);
       if (fieldAttribute != null)
       {
         var primaryKeyAttribute = FirstOrNull<PrimaryKeyAttribute>(propertyAttributes);
 
-        var field = new Field(fieldAttribute.Name, property.Name, property.PropertyType, primaryKeyAttribute != null, fieldAttribute.DefaultValue);
+        var field = new Field(fieldAttribute.Name, property.Name, property.PropertyType, primaryKeyAttribute != null,
+          fieldAttribute.DefaultValue);
         result.Fields.Add(field);
       }
 
@@ -43,7 +44,7 @@ internal static class TypeConverter
       {
         var indexAttribute = tinyOrmAttribute as IndexAttribute;
         if (indexAttribute == null) continue;
-        
+
         var index = result.Indexes.FirstOrDefault(r => r.Name == indexAttribute.Name);
         if (index == null)
         {
@@ -55,7 +56,7 @@ internal static class TypeConverter
         index.Fields.Add(field);
       }
     }
-    
+
     return result;
   }
 }

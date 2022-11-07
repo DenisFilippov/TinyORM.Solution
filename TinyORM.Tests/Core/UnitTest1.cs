@@ -1,4 +1,5 @@
 using Microsoft.Data.Sqlite;
+using SQLitePCL;
 using TinyORM.Core;
 using TinyORM.Sqlite;
 
@@ -26,16 +27,19 @@ public class UnitTest1
     var context = Context.Instance();
     context.AddEntity(typeof(PersonEntity));
     context.AddEntity(typeof(SaleEntity));
-    
+
     using var connection = new SqliteConnection("Data Source=E:\\Projects\\CSharp\\TinyORM.Solution\\test.db");
 
-    SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3());
+    raw.SetProvider(new SQLite3Provider_e_sqlite3());
     connection.Open();
-    
+
     var persons = connection
       .Select<PersonEntity>("select * from persons");
-    
-    Assert.That(persons, Is.Not.Null);
-    Assert.AreEqual(persons.Count(), 3);
+
+    Assert.Multiple(() =>
+    {
+      Assert.That(persons, Is.Not.Null);
+      Assert.That(3, Is.EqualTo(persons.Count()));
+    });
   }
 }

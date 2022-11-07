@@ -10,6 +10,6 @@ public class FieldAttribute : TinyORMAttribute
   }
 
   public string Name { get; }
-  
+
   public object? DefaultValue { get; }
 }

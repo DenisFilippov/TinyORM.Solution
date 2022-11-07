@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TinyORM.Core\TinyORM.Core.csproj" />
+        <ProjectReference Include="..\TinyORM.Core\TinyORM.Core.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.10" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.10"/>
     </ItemGroup>
 
 </Project>

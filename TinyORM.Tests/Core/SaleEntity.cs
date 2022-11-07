@@ -3,15 +3,12 @@
 namespace TinyORM.Tests.Core;
 
 [Entity]
-[Table("public", name: "sales")]
+[Table("public", "sales")]
 public class SaleEntity
 {
-  [Field("id")]
-  public int Id { get; set; }
-  
-  [Field("idPerson")]
-  public int IdPerson { get; set; }
-  
-  [Field("summ")]
-  public double Summ { get; set; }
+  [Field("id")] public int Id { get; set; }
+
+  [Field("idPerson")] public int IdPerson { get; set; }
+
+  [Field("summ")] public double Summ { get; set; }
 }

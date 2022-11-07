@@ -9,10 +9,10 @@ public class IndexAttribute : TinyORMAttribute
     IsUnique = isUnique;
     SortType = sortType;
   }
-  
+
   public string Name { get; }
 
   public bool IsUnique { get; }
-  
+
   public SortEnum SortType { get; }
 }

@@ -4,13 +4,15 @@ namespace TinyORM.Core;
 
 public class Context
 {
+  private static Context? _instance;
   private readonly IDictionary<Type, Entity> _entityCollection;
-  private static Context _instance = null;
 
   private Context()
   {
     _entityCollection = new Dictionary<Type, Entity>();
   }
+
+  public Entity this[Type type] => _entityCollection[type];
 
   public void AddEntity(Type entityType)
   {
@@ -20,16 +22,9 @@ public class Context
     if (!_entityCollection.ContainsKey(entityType)) _entityCollection.Add(entityType, table);
   }
 
-  public Entity this[Type type] => _entityCollection[type];
-
   [MethodImpl(MethodImplOptions.Synchronized)]
   public static Context Instance()
   {
-    if (_instance == null)
-    {
-      _instance = new Context();
-    }
-
-    return _instance;
+    return _instance ??= new Context();
   }
 }
