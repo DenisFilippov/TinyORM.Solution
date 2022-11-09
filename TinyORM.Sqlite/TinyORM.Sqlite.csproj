@@ -4,14 +4,16 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Denis E. Filippov</Authors>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\TinyORM.Core\TinyORM.Core.csproj"/>
+        <ProjectReference Include="..\TinyORM.Core\TinyORM.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.10"/>
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.10" />
     </ItemGroup>
 
 </Project>

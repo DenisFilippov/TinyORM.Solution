@@ -25,12 +25,12 @@ public class UnitTest1
   public void SqliteSelect()
   {
     var context = Context.Instance();
+    context.SqliteInitialize();
     context.AddEntity(typeof(PersonEntity));
     context.AddEntity(typeof(SaleEntity));
 
     using var connection = new SqliteConnection("Data Source=E:\\Projects\\CSharp\\TinyORM.Solution\\test.db");
-
-    raw.SetProvider(new SQLite3Provider_e_sqlite3());
+    
     connection.Open();
 
     var persons = connection
