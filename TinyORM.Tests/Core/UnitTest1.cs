@@ -1,5 +1,4 @@
 using Microsoft.Data.Sqlite;
-using SQLitePCL;
 using TinyORM.Core;
 using TinyORM.Sqlite;
 
@@ -30,7 +29,7 @@ public class UnitTest1
     context.AddEntity(typeof(SaleEntity));
 
     using var connection = new SqliteConnection("Data Source=E:\\Projects\\CSharp\\TinyORM.Solution\\test.db");
-    
+
     connection.Open();
 
     var persons = connection
